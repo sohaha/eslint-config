@@ -50,15 +50,17 @@ function htmlEncode (html) {
     .then((v) => v.json())
     .then((j) => {
       for (const k in j) {
+        if (!Object.prototype.hasOwnProperty.call(j, k)) continue;
         const data = j[k];
         if (!data.value || data.value === 'off') {
           continue;
         }
-        if (name === 'vue' && !data['badExample'] && !data['goodExample']) {
+        if (name === 'vue'&&!data['badExample']) {
+          console.log(data);
           continue;
         }
         const e = document.createElement('div');
-        e.classList = 'flex space-x-2 pt-12 target:font-bold flex-col lg:flex-row';
+        e.classList = 'flex space-x-2 pt-20 md:pt-12 target:font-bold flex-col lg:flex-row';
         e.id = k;
         const base = document.createElement('div');
         base.classList = 'flex-1 px-2';
@@ -93,5 +95,5 @@ function htmlEncode (html) {
 
   await Promise.all([getRules('base'), getRules('vue')]);
 
-  toggleTab(location.search.slice(1) || 'vue', location.hash);
+  toggleTab(location.search.slice(1), location.hash);
 })();

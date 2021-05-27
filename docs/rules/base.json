@@ -1819,8 +1819,8 @@
     "value": "warn",
     "description": "申明后不再被修改的变量必须使用 const 来申明",
     "reason": "",
-    "badExample": "",
-    "goodExample": "",
+    "badExample": "<span class=\"token keyword\">let</span> <mark class=\"eslint-error\">a</mark> <span class=\"token operator\">=</span> <span class=\"token number\">123</span><span class=\"token punctuation\">;</span>\n<span class=\"token keyword\">let</span> b <span class=\"token operator\">=</span> <span class=\"token number\">321</span><span class=\"token punctuation\">;</span>\nb <span class=\"token operator\">=</span> <span class=\"token number\">567</span><span class=\"token punctuation\">;</span>",
+    "goodExample": "<span class=\"token keyword\">const</span> a <span class=\"token operator\">=</span> <span class=\"token number\">123</span><span class=\"token punctuation\">;</span>\n<span class=\"token keyword\">let</span> b <span class=\"token operator\">=</span> <span class=\"token number\">321</span><span class=\"token punctuation\">;</span>\nb <span class=\"token operator\">=</span> <span class=\"token number\">567</span><span class=\"token punctuation\">;</span>",
     "fixable": true,
     "extendsBaseRule": "",
     "requiresTypeChecking": false
@@ -1940,8 +1940,8 @@
     "value": [2, "single", { "allowTemplateLiterals": true }],
     "description": "字符串使用单引号或反引号",
     "reason": "",
-    "badExample": "",
-    "goodExample": "",
+    "badExample": "<span class=\"token keyword\">let</span> t <span class=\"token operator\">=</span> <span class=\"token string\"><mark class=\"eslint-error\">\"666\"</mark></span><span class=\"token punctuation\">;</span>\n<span class=\"token keyword\">let</span> m <span class=\"token operator\">=</span> <span class=\"token string\"><mark class=\"eslint-error\">\"good\"</mark></span> <span class=\"token operator\">+</span> t<span class=\"token punctuation\">;</span>",
+    "goodExample": "<span class=\"token keyword\">let</span> t <span class=\"token operator\">=</span> <span class=\"token string\">'666'</span><span class=\"token punctuation\">;</span>\n<span class=\"token keyword\">let</span> m <span class=\"token operator\">=</span> <span class=\"token template-string\"><span class=\"token string\">`good </span><span class=\"token interpolation\"><span class=\"token interpolation-punctuation punctuation\">${</span>t<span class=\"token interpolation-punctuation punctuation\">}</span></span><span class=\"token string\">`</span></span><span class=\"token punctuation\">;</span>",
     "fixable": true,
     "extendsBaseRule": "",
     "requiresTypeChecking": false
@@ -2006,8 +2006,8 @@
     "value": [2, "always"],
     "description": "分号结尾",
     "reason": "",
-    "badExample": "",
-    "goodExample": "",
+    "badExample": "<span class=\"token keyword\">let</span> t <span class=\"token operator\">=</span> <span class=\"token string\">\"666\"</span><mark class=\"eslint-error\"></mark>>",
+    "goodExample": "<span class=\"token keyword\">let</span> t <span class=\"token operator\">=</span> <span class=\"token string\">'666'</span><span class=\"token punctuation\">;</span>",
     "fixable": true,
     "extendsBaseRule": "",
     "requiresTypeChecking": false
