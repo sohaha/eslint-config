@@ -1,0 +1,56 @@
+# zzz watch 配置 https://github.com/sohaha/zzz
+core:
+  # 配置版本号，勿手动修改
+  version: 1.0.28
+
+# 监控配置
+monitor:
+  # 使用轮询，开启可以监听挂载目录
+  poll: false
+
+  # 要监听的目录，支持通配符*，如“.,*”表示监听当前目录及其所有子目录
+  includeDirs:
+    - .,*
+
+  # 忽略监听的目录
+  exceptDirs:
+    - .idea/
+    - .git/
+    - .vscode/
+    - node_modules/
+    - vendor/
+
+  # 监听文件的格式，支持通配符*，如“.*”表示监听全部格式文件
+  types:
+    - .go
+    - .php
+    - .json
+    - .js
+    - .html
+
+# 命令
+command:
+  # execPhp:
+  #  - echo "is php"
+
+  # 开启监听后自动执行一次上面 exec 配置的全部命令
+  startup: true
+
+# 本地静态服务器
+http:
+  # 类型: vue-run, vue-spa, web, 留空表示不启动
+  type: web
+  # 指定端口，0 表示随机可用端口
+  port: 1231
+  # web 服务器目录
+  root: ./
+  # 将非本地文件的请求代理到服务器，主要用于本地跨域问题，留空表示不使用，格式如下：
+  # proxy: https://blog.73zls.com
+  proxy:
+  # 自动打开浏览器
+  openBrowser: false
+
+# 其他
+other:
+  # 延迟执行指令通知时间（毫秒），不限制为 0
+  delayMillSecond: 100

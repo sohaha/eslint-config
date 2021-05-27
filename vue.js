@@ -1,12 +1,3 @@
-/**
- * 依赖版本：
- *   eslint ^7.11.0
- *   babel-eslint ^10.1.0
- *   vue-eslint-parser ^7.1.1
- *   eslint-plugin-vue ^6.2.2
- *   @typescript-eslint/parser ^4.4.1
- *   @typescript-eslint/eslint-plugin ^4.4.1
- */
 module.exports = {
   parser: 'vue-eslint-parser',
   parserOptions: {
@@ -31,32 +22,9 @@ module.exports = {
   plugins: ['vue'],
   rules: {
     /**
-     * HTML 属性的引号样式
-     */
-    "vue/html-quotes": ["error", "double", { "avoidEscape": true }],
-    /**
-     * 限制组件名的风格
-     */
-    "vue/component-name-in-template-casing": ["error", "kebab-case", {
-      "registeredComponentsOnly": false,
-      "ignores": []
-    }],
-    /**
-     * 强制执行自闭式
-     */
-    "vue/html-self-closing": ["error", {
-      "html": {
-        "void": "never",
-        "normal": "always",
-        "component": "always"
-      },
-      "svg": "always",
-      "math": "always"
-    }],
-    /**
      * 限制自定义组件的属性风格
      */
-    'vue/attribute-hyphenation': 'warn',
+    'vue/attribute-hyphenation': 'error',
     /**
      * 标签属性必须按规则排序
      */
@@ -76,8 +44,18 @@ module.exports = {
      */
     'vue/component-definition-name-casing': ['error', 'PascalCase'],
     /**
-     * 组件中必须按照 <script>, <template>, <style> 排序
-     * @reason 这是官方建议的顺序
+     * 限制组件名的风格
+     */
+    'vue/component-name-in-template-casing': [
+      'error',
+      'kebab-case',
+      {
+        registeredComponentsOnly: false,
+        ignores: [],
+      },
+    ],
+    /**
+     * 组件中必须按照 <template>, <script>, <style> 排序
      */
     'vue/component-tags-order': [
       'error',
@@ -89,6 +67,20 @@ module.exports = {
      * 必须使用 === 或 !==，禁止使用 == 或 !=
      */
     'vue/eqeqeq': ['error', 'always'],
+    /**
+     * HTML 属性的引号样式
+     */
+    'vue/html-quotes': [
+      'error',
+      'double',
+      {
+        avoidEscape: true,
+      },
+    ],
+    /**
+     *
+     */
+    'vue/html-self-closing': 'warn',
     /**
      * 修复 no-unused-vars 不检查 jsx 的问题
      */
@@ -107,7 +99,6 @@ module.exports = {
     'vue/no-async-in-computed-properties': 'error',
     /**
      * 禁止给布尔值 props 添加默认值
-     * @reason 类型相关的约束交给 TypeScript
      */
     'vue/no-boolean-default': 'off',
     /**
@@ -225,16 +216,15 @@ module.exports = {
     /**
      * props 必须用驼峰式
      */
-    'vue/prop-name-casing': 'off',
+    'vue/prop-name-casing': 'error',
     /**
      * <component> 必须有绑定的组件
      */
     'vue/require-component-is': 'error',
     /**
      * props 如果不是 required 的字段，必须有默认值
-     * @reason 类型相关的约束交给 TypeScript
      */
-    'vue/require-default-prop': 'off',
+    'vue/require-default-prop': 'error',
     /**
      * 必须直接使用 export default 导出组件
      */
@@ -250,7 +240,6 @@ module.exports = {
     'vue/require-prop-type-constructor': 'off',
     /**
      * prop 必须有类型限制
-     * @reason 类型相关的约束交给 TypeScript
      */
     'vue/require-prop-types': 'off',
     /**
@@ -263,9 +252,8 @@ module.exports = {
     'vue/require-v-for-key': 'error',
     /**
      * prop 的默认值必须匹配它的类型
-     * @reason 类型相关的约束交给 TypeScript
      */
-    'vue/require-valid-default-prop': 'off',
+    'vue/require-valid-default-prop': 'error',
     /**
      * 计算属性必须有返回值
      */

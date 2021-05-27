@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>代码规范</title>
+    <script src="./static/weakmap-polyfill.js" nomodule></script>
+    <script src="./static/tailwind.umd.js"></script>
+    <link rel="stylesheet" href="./static/prism.css" />
+</head>
+
+<body>
+<div id="app" class="select-none bg-gray-50 relative w-screen min-h-screen">
+    <header class="text-gray-500 bg-white shadow-lg w-full z-50 sticky top-0 left-0">
+        <div class="
+            container
+            mx-auto
+            flex flex-wrap
+            px-5
+            py-2
+            flex-col
+            md:flex-row
+            items-center
+          ">
+            <a class="
+              flex
+              title-font
+              font-medium
+              items-center
+              text-green-900
+              mb-4
+              md:mb-0
+            ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-green-500 rounded-full" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                <span class="ml-3 text-xl">代码规范说明</span> </a>
+            <nav class="
+              md:ml-auto
+              md:mr-auto
+              flex flex-wrap
+              items-center
+              text-green-900
+              justify-center
+            ">
+                <!--<a class="mr-5 hover:text-green-500 cursor-pointer" onClick="toggleTab('')">快速上手</a>-->
+                <a class="mr-5 hover:text-green-500 cursor-pointer" onClick="toggleTab('base')">JS 规则</a>
+                <a class="mr-5 hover:text-green-500 cursor-pointer" onClick="toggleTab('vue')">Vue 规则</a>
+            </nav>
+        </div>
+    </header>
+    <!--    <div id="start" class="absolute left-0 top-0 w-full p-5 pt-20">-->
+    <!--        <div class="flex space-x-2 ">-->
+    <!--            <h3>使用方法</h3>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <div id="vue" class="absolute left-0 top-0 -translate-y-full -translate-x-full w-full p-5"></div>
+    <div id="base" class="absolute left-0 top-0 -translate-y-full -translate-x-full w-full p-5"></div>
+</div>
+<script src="./static/app.js"></script>
+</body>
+
+</html>

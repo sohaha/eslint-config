@@ -1,12 +1,3 @@
-/**
- * 依赖版本：
- *   eslint ^7.11.0
- *   babel-eslint ^10.1.0
- *   vue-eslint-parser ^7.1.1
- *   eslint-plugin-vue ^6.2.2
- *   @typescript-eslint/parser ^4.4.1
- *   @typescript-eslint/eslint-plugin ^4.4.1
- */
 module.exports = {
   parser: 'babel-eslint',
   parserOptions: {
@@ -34,20 +25,6 @@ module.exports = {
   // 以当前目录为根目录，不再向上查找 .eslintrc.js
   root: true,
   rules: {
-    /**
-     * 分号结尾
-     */
-    'semi': [2, 'always'],
-    /**
-     * 字符串使用单引号或反引号
-     */
-    'quotes': [
-      2,
-      'single',
-      {
-        'allowTemplateLiterals': true
-      }
-    ],
     /**
      * setter 必须有对应的 getter，getter 可以没有对应的 setter
      */
@@ -869,6 +846,16 @@ module.exports = {
      */
     'prefer-template': 'off',
     /**
+     * 字符串使用单引号或反引号
+     */
+    quotes: [
+      2,
+      'single',
+      {
+        allowTemplateLiterals: true,
+      },
+    ],
+    /**
      * parseInt 必须传入第二个参数
      */
     radix: 'error',
@@ -891,6 +878,10 @@ module.exports = {
      * generator 函数内必须有 yield
      */
     'require-yield': 'error',
+    /**
+     * 分号结尾
+     */
+    semi: [2, 'always'],
     /**
      * 导入必须按规则排序
      */
