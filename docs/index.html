@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
     <title>代码规范</title>
     <script src="./static/weakmap-polyfill.js" nomodule></script>
     <script src="./static/tailwind.umd.js"></script>
@@ -12,57 +13,101 @@
 </head>
 
 <body>
-<div id="app" class="select-none bg-gray-50 relative w-screen min-h-screen">
-    <header class="text-gray-500 bg-white shadow-lg w-full z-50 sticky top-0 left-0">
-        <div class="
-            container
-            mx-auto
-            flex flex-wrap
-            px-5
-            py-2
-            flex-col
-            md:flex-row
-            items-center
-          ">
-            <a class="
-              flex
-              title-font
-              font-medium
-              items-center
-              text-green-900
-              mb-4
-              md:mb-0
-            ">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-green-500 rounded-full" viewBox="0 0 24 24">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                </svg>
-                <span class="ml-3 text-xl">代码规范说明</span> </a>
-            <nav class="
-              md:ml-auto
-              md:mr-auto
-              flex flex-wrap
-              items-center
-              text-green-900
-              justify-center
-            ">
-                <a class="mr-5 hover:text-green-500 cursor-pointer" onClick="toggleTab('')">快速上手</a>
-                <a class="mr-5 hover:text-green-500 cursor-pointer" onClick="toggleTab('base')">JS 规则</a>
-                <a class="mr-5 hover:text-green-500 cursor-pointer" onClick="toggleTab('vue')">Vue 规则</a>
-            </nav>
-        </div>
-    </header>
-    <div id="start" class="absolute left-0 top-0 w-full h-screen p-5 pt-20  flex flex-col justify-center items-center ">
-        <div class="container text-center pb-36">
-            <h2 class="text-3xl mb-5">Eslint 与 VsCode 插件安装</h2>
+    <div id="app" class="relative min-h-screen select-none">
+        <header class="sticky top-0 left-0 z-50 w-full text-gray-500 bg-white shadow-lg">
+            <div class="container relative flex flex-col flex-wrap items-center px-5 py-2 mx-auto md:flex-row">
+                <a class="flex items-center mb-4 font-medium text-green-900 title-font md:mb-0 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2"
+                        class="w-10 h-10 p-2 text-white bg-green-500 rounded-full" viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                    <span class="ml-3 text-xl">代码规范说明</span> </a>
+                <nav class="flex flex-wrap items-center justify-center m-auto text-green-900 md:mr-0">
+                    <a class="mr-5 cursor-pointer hover:text-green-500" onClick="toggleTab('')">快速上手</a>
+                    <a class="mr-5 cursor-pointer hover:text-green-500" onClick="toggleTab('base')">JS 规则</a>
+                    <a class="mr-5 cursor-pointer hover:text-green-500" onClick="toggleTab('vue')">Vue 规则</a>
+                </nav>
+            </div>
+        </header>
+        <div id="start"
+            class="absolute top-0 left-0 flex flex-col items-center w-full h-screen p-5 pt-20 1justify-center">
+            <!-- <div class="container text-center pb-36">
+            <h2 class="mb-5 text-3xl">Eslint 与 VsCode 插件安装</h2>
             <h2 class="text-3xl">请先参考：[
-                <a class="hover:text-green-500" href="https://github.com/sohaha/eslint-config.git" target="_blank">README.md</a> ]
+                <a class="hover:text-green-500" href="https://github.com/sohaha/eslint-config.git"
+                    target="_blank">README.md</a> ]
             </h2>
+        </div> -->
+            <div class="container pt-10 md:pt-6">
+                <h3>依赖安装：</h3>
+                <pre
+                    class="w-full overflow-auto border select-text language-bash"><code><span class="token comment"># 直接执行执行 npm 命令安装依赖</span>
+<span class="token function">npm</span> <span class="token function">install</span> --save-dev eslint babel-eslint vue-eslint-parser eslint-plugin-vue eslint-config-zls
+
+
+<span class="token comment"># 需要 eslint^7 以上版本
+# 如果是使用 vue-cli 创建的旧项目，请先移除掉现有的 eslint 相关依赖再重新安装</span>
+<span class="token function">npm</span> <span class="token function">remove</span> @vue/cli-plugin-eslint eslint babel-eslint eslint-plugin-vue
+<span class="token function">npm</span> <span class="token function">install</span> @vue/cli-plugin-eslint@next eslint babel-eslint vue-eslint-parser eslint-plugin-vue eslint-config-zls</code></pre>
+                <h4 class="text-sm text-gray-500">安装依赖完毕之后，在项目的根目录下创建一个 <span
+                        class="token function">`.eslintrc.js`</span>
+                    文件，并将以下内容复制进去：</h4>
+                <pre class="w-full overflow-auto border select-text language-bash"><code class=" language-javascript">module<span
+                    class="token punctuation">.</span>exports <span class="token operator">=</span> <span
+                    class="token punctuation">{</span>
+    <span class="token keyword">extends</span><span class="token operator">:</span> <span
+                        class="token punctuation">[</span>
+        <span class="token string">'zls'</span><span class="token punctuation">,</span>
+        <span class="token string">'zls/vue'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    rules<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 自定义规则</span>
+        <span class="token string">'no-debugger'</span><span class="token operator">:</span> process<span
+                        class="token punctuation">.</span>env<span class="token punctuation">.</span><span
+                        class="token constant">NODE_ENV</span> <span class="token operator">===</span> <span
+                        class="token string">'production'</span> <span class="token operator">?</span> <span
+                        class="token string">'error'</span> <span class="token operator">:</span> <span
+                        class="token string">'off'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+                <h3 class="mt-10">VsCode 插件：</h3>
+                <h4 class="text-sm text-gray-500">为了提升开发效率，建议安装一下插件实现自动 fix 与 语法提示功能。</h4>
+                <div class="mt-2 ">插件列表： <span class="text-green-500"><a
+                            href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint"
+                            target="_blank">Eslint</a>
+                        | <a href="https://marketplace.visualstudio.com/items?itemName=rvest.vs-code-prettier-eslint"
+                            target="_blank">Prettier-eslint</a> | <a
+                            href="https://marketplace.visualstudio.com/items?itemName=octref.vetur"
+                            target="_blank">Vetur</a></span></div>
+                <div class="text-sm text-gray-500"> 如果 VsCode 无法在线安装插件，可以点击这里 <a download
+                        href="./vscode-vue-extension.zip">下载<span class="text-green-600"> ”离线包“ </span></a>，然后在点击 <span class="token function">Install from
+                        SIX</span> 安装。
+                    <div class="bg-yellow-50 mt-1 border rounded-[0.3em] p-[1em]">
+                        <div><img
+                                class=" p-2 object-contain w-[360px] shadow-lg m-auto md:ml-10 block lg:hover:(!m-auto scale-[2] opacity-90 p-0)"
+                                src="./static/install.png" /></div>
+                    </div>
+                    <div class="flex flex-col justify-center text-sm text-gray-500">配置格式化方式：
+                        <div><img
+                                class=" p-2 object-contain w-[360px] shadow-lg m-auto md:ml-10 block lg:hover:(!m-auto scale-[2] opacity-90 p-0)"
+                                src="./static/format1.png" /></div>
+                        <div class="mt-2"><img
+                                class=" p-2 object-contain w-[360px] h-auto shadow-lg m-auto md:ml-10 block lg:hover:(!m-auto scale-[2] opacity-90 p-0)"
+                                src="./static/format2.png" /></div>
+                    </div>
+                    <div class="flex flex-col justify-center text-sm text-gray-500">首次使用需启用 Eslint：
+                        <div><img
+                                class=" p-2 object-contain w-[360px] shadow-lg m-auto md:ml-10 block lg:hover:(!m-auto scale-[2] opacity-90 p-0)"
+                                src="./static/eslint-start.png" /></div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div id="vue" class="absolute top-0 left-0 w-full p-5 -translate-x-full -translate-y-full"></div>
+        <div id="base" class="absolute top-0 left-0 w-full p-5 -translate-x-full -translate-y-full"></div>
     </div>
-    <div id="vue" class="absolute left-0 top-0 -translate-y-full -translate-x-full w-full p-5"></div>
-    <div id="base" class="absolute left-0 top-0 -translate-y-full -translate-x-full w-full p-5"></div>
-</div>
-<script src="./static/app.js"></script>
+    <script src="./static/app.js"></script>
 </body>
 
 </html>

@@ -14,7 +14,7 @@ function toggleTab (t, hash) {
     if (hash) {
       document.getElementById(location.hash.slice(1)).scrollIntoView();
     }
-  }, 250);
+  }, 350);
 }
 
 function htmlEncode (html) {
@@ -25,7 +25,7 @@ function htmlEncode (html) {
 
 (async function () {
   function getRules (name) {
-    const className = 'w-full lg:w-2/5 language-html overflow-auto site-code empty:bg-gray-200 min-h-[100px] border select-text';
+    const className = 'w-full lg:w-2/5 language-html overflow-auto empty:bg-gray-200 min-h-[100px] border select-text';
     const fr = document.createDocumentFragment();
 
     const e = document.createElement('div');

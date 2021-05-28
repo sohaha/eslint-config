@@ -1,3 +1,12 @@
+/**
+ * 依赖版本：
+ *   eslint ^7.11.0
+ *   babel-eslint ^10.1.0
+ *   vue-eslint-parser ^7.1.1
+ *   eslint-plugin-vue ^6.2.2
+ *   @typescript-eslint/parser ^4.4.1
+ *   @typescript-eslint/eslint-plugin ^4.4.1
+ */
 module.exports = {
   parser: 'babel-eslint',
   parserOptions: {
@@ -41,12 +50,10 @@ module.exports = {
     'array-callback-return': 'error',
     /**
      * 将 var 定义的变量视为块作用域，禁止在块外使用
-     * @reason 已经禁止使用 var 了
      */
     'block-scoped-var': 'off',
     /**
      * 变量名必须是 camelcase 风格的
-     * @reason 很多 api 或文件名都不是 camelcase 风格的
      */
     camelcase: 'off',
     /**
@@ -59,7 +66,6 @@ module.exports = {
     'class-methods-use-this': 'off',
     /**
      * 禁止函数的循环复杂度超过 20
-     * @reason https://en.wikipedia.org/wiki/Cyclomatic_complexity
      */
     complexity: [
       'error',
@@ -69,7 +75,6 @@ module.exports = {
     ],
     /**
      * 禁止函数在不同分支返回不同类型的值
-     * @reason 缺少 TypeScript 的支持，类型判断是不准确的
      */
     'consistent-return': 'off',
     /**
@@ -94,7 +99,6 @@ module.exports = {
     'default-param-last': 'off',
     /**
      * 禁止使用 foo['bar']，必须写成 foo.bar
-     * @reason 当需要写一系列属性的时候，可以更统一
      */
     'dot-notation': 'off',
     /**
@@ -157,7 +161,6 @@ module.exports = {
     'line-comment-position': 'off',
     /**
      * 类的成员之间是否需要空行
-     * @reason 有时为了紧凑需要挨在一起，有时为了可读性需要空一行
      */
     'lines-between-class-members': 'off',
     /**
@@ -194,7 +197,6 @@ module.exports = {
     'max-statements-per-line': 'off',
     /**
      * 约束多行注释的格式
-     * @reason 能写注释已经不容易了，不需要限制太多
      */
     'multiline-comment-style': 'off',
     /**
@@ -214,18 +216,14 @@ module.exports = {
     'no-alert': 'off',
     /**
      * 禁止使用 Array 构造函数时传入的参数超过一个
-     * @reason 参数为一个时表示创建一个指定长度的数组，比较常用
-     * 参数为多个时表示创建一个指定内容的数组，此时可以用数组字面量实现，不必使用构造函数
      */
     'no-array-constructor': 'error',
     /**
      * 禁止将 async 函数做为 new Promise 的回调函数
-     * @reason 出现这种情况时，一般不需要使用 new Promise 实现异步了
      */
     'no-async-promise-executor': 'error',
     /**
      * 禁止将 await 写在循环里，因为这样就无法同时发送多个异步请求了
-     * @reason 要求太严格了，有时需要在循环中写 await
      */
     'no-await-in-loop': 'off',
     /**
@@ -234,7 +232,6 @@ module.exports = {
     'no-bitwise': 'off',
     /**
      * 禁止使用 caller 或 callee
-     * @reason 它们是已废弃的语法
      */
     'no-caller': 'error',
     /**
@@ -280,7 +277,6 @@ module.exports = {
     'no-continue': 'off',
     /**
      * 禁止在正则表达式中出现 Ctrl 键的 ASCII 表示，即禁止使用 /\x1f/
-     * @reason 几乎不会遇到这种场景
      */
     'no-control-regex': 'off',
     /**
@@ -289,17 +285,14 @@ module.exports = {
     'no-debugger': 'error',
     /**
      * 禁止对一个变量使用 delete
-     * @reason 编译阶段就会报错了
      */
     'no-delete-var': 'off',
     /**
      * 禁止在正则表达式中出现形似除法操作符的开头，如 let a = /=foo/
-     * @reason 有代码高亮的话，在阅读这种代码时，也完全不会产生歧义或理解上的困难
      */
     'no-div-regex': 'off',
     /**
      * 禁止在函数参数中出现重复名称的参数
-     * @reason 编译阶段就会报错了
      */
     'no-dupe-args': 'off',
     /**
@@ -324,7 +317,6 @@ module.exports = {
     'no-duplicate-imports': 'error',
     /**
      * 禁止在 else 内使用 return，必须改为提前结束
-     * @reason else 中使用 return 可以使代码结构更清晰
      */
     'no-else-return': 'off',
     /**
@@ -342,7 +334,6 @@ module.exports = {
     'no-empty-character-class': 'error',
     /**
      * 不允许有空函数
-     * @reason 有时需要将一个空函数设置为某个项的默认值
      */
     'no-empty-function': 'off',
     /**
@@ -363,7 +354,6 @@ module.exports = {
     'no-ex-assign': 'error',
     /**
      * 禁止修改原生对象
-     * @reason 修改原生对象可能会与将来版本的 js 冲突
      */
     'no-extend-native': 'error',
     /**
@@ -376,7 +366,6 @@ module.exports = {
     'no-extra-boolean-cast': 'error',
     /**
      * 禁止出现没必要的 label
-     * @reason 已经禁止使用 label 了
      */
     'no-extra-label': 'off',
     /**
@@ -402,7 +391,6 @@ module.exports = {
     ],
     /**
      * 禁止在全局作用域下定义变量或申明函数
-     * @reason 模块化之后，不会出现这种在全局作用域下定义变量的情况
      */
     'no-implicit-globals': 'off',
     /**
@@ -427,7 +415,6 @@ module.exports = {
     'no-invalid-regexp': 'error',
     /**
      * 禁止在类之外的地方使用 this
-     * @reason 只允许在 class 中使用 this
      */
     'no-invalid-this': 'error',
     /**
@@ -444,13 +431,10 @@ module.exports = {
     ],
     /**
      * 禁止使用 __iterator__
-     * @reason __iterator__ 是一个已废弃的属性
-     * 使用 [Symbol.iterator] 替代它
      */
     'no-iterator': 'error',
     /**
      * 禁止 label 名称与已定义的变量重复
-     * @reason 已经禁止使用 label 了
      */
     'no-label-var': 'off',
     /**
@@ -463,12 +447,10 @@ module.exports = {
     'no-lone-blocks': 'error',
     /**
      * 禁止 else 中只有一个单独的 if
-     * @reason 单独的 if 可以把逻辑表达的更清楚
      */
     'no-lonely-if': 'off',
     /**
      * 禁止在循环内的函数内部出现循环体条件语句中定义的变量
-     * @reason 使用 let 就已经解决了这个问题了
      */
     'no-loop-func': 'off',
     /**
@@ -481,7 +463,6 @@ module.exports = {
     'no-magic-numbers': 'off',
     /**
      * 禁止正则表达式中使用肉眼无法区分的特殊字符
-     * @reason 某些特殊字符很难看出差异，最好不要在正则中使用
      */
     'no-misleading-character-class': 'error',
     /**
@@ -494,7 +475,6 @@ module.exports = {
     'no-multi-str': 'error',
     /**
      * 禁止 if 里有否定的表达式
-     * @reason 否定的表达式可以把逻辑表达的更清楚
      */
     'no-negated-condition': 'off',
     /**
@@ -503,12 +483,10 @@ module.exports = {
     'no-nested-ternary': 'off',
     /**
      * 禁止直接 new 一个类而不赋值
-     * @reason new 应该作为创建一个类的实例的方法，所以不能不赋值
      */
     'no-new': 'error',
     /**
      * 禁止使用 new Function
-     * @reason 这和 eval 是等价的
      */
     'no-new-func': 'error',
     /**
@@ -529,12 +507,10 @@ module.exports = {
     'no-obj-calls': 'error',
     /**
      * 禁止使用 0 开头的数字表示八进制数
-     * @reason 编译阶段就会报错了
      */
     'no-octal': 'off',
     /**
      * 禁止使用八进制的转义符
-     * @reason 编译阶段就会报错了
      */
     'no-octal-escape': 'off',
     /**
@@ -551,17 +527,14 @@ module.exports = {
     'no-promise-executor-return': 'error',
     /**
      * 禁止使用 __proto__
-     * @reason __proto__ 是已废弃的语法
      */
     'no-proto': 'error',
     /**
      * 禁止使用 hasOwnProperty, isPrototypeOf 或 propertyIsEnumerable
-     * @reason hasOwnProperty 比较常用
      */
     'no-prototype-builtins': 'off',
     /**
      * 禁止重复定义变量
-     * @reason 禁用 var 之后，编译阶段就会报错了
      */
     'no-redeclare': 'off',
     /**
@@ -598,7 +571,6 @@ module.exports = {
     'no-return-await': 'off',
     /**
      * 禁止出现 location.href = 'javascript:void(0)';
-     * @reason 有些场景下还是需要用到这个
      */
     'no-script-url': 'off',
     /**
@@ -619,7 +591,6 @@ module.exports = {
     'no-setter-return': 'error',
     /**
      * 禁止变量名与上层作用域内的已定义的变量重复
-     * @reason 很多时候函数的形参和传参是同名的
      */
     'no-shadow': 'off',
     /**
@@ -668,7 +639,6 @@ module.exports = {
     'no-unmodified-loop-condition': 'error',
     /**
      * 必须使用 !a 替代 a ? false : true
-     * @reason 后者表达的更清晰
      */
     'no-unneeded-ternary': 'off',
     /**
@@ -681,7 +651,6 @@ module.exports = {
     'no-unreachable-loop': 'error',
     /**
      * 禁止在 finally 中出现 return, throw, break 或 continue
-     * @reason finally 中的语句会在 try 之前执行
      */
     'no-unsafe-finally': 'error',
     /**
@@ -701,7 +670,6 @@ module.exports = {
     ],
     /**
      * 禁止出现没用到的 label
-     * @reason 已经禁止使用 label 了
      */
     'no-unused-labels': 'off',
     /**
@@ -729,7 +697,6 @@ module.exports = {
     ],
     /**
      * 禁止正则表达式中出现无用的回溯引用
-     * @reason 某些回溯引用语法上没问题，但是会永远匹配到空字符串
      */
     'no-useless-backreference': 'error',
     /**
@@ -738,7 +705,6 @@ module.exports = {
     'no-useless-call': 'error',
     /**
      * 禁止在 catch 中仅仅只是把错误 throw 出去
-     * @reason 这样的 catch 是没有意义的，等价于直接执行 try 里的代码
      */
     'no-useless-catch': 'error',
     /**
@@ -755,7 +721,6 @@ module.exports = {
     'no-useless-constructor': 'error',
     /**
      * 禁止出现没必要的转义
-     * @reason 转义可以使代码更易懂
      */
     'no-useless-escape': 'off',
     /**
@@ -780,12 +745,10 @@ module.exports = {
     'no-warning-comments': 'off',
     /**
      * 禁止使用 with
-     * @reason 编译阶段就会报错了
      */
     'no-with': 'off',
     /**
      * 必须使用 a = {b} 而不是 a = {b: b}
-     * @reason 有时后者可以使代码结构更清晰
      */
     'object-shorthand': 'off',
     /**
@@ -814,7 +777,6 @@ module.exports = {
     'prefer-exponentiation-operator': 'off',
     /**
      * 使用 ES2018 中的正则表达式命名组
-     * @reason 正则表达式已经较难理解了，没必要强制加上命名组
      */
     'prefer-named-capture-group': 'off',
     /**
@@ -861,9 +823,6 @@ module.exports = {
     radix: 'error',
     /**
      * 禁止将 await 或 yield 的结果做为运算符的后面项
-     * @reason 这样会导致不符合预期的结果
-     * https://github.com/eslint/eslint/issues/11899
-     * 在上面 issue 修复之前，关闭此规则
      */
     'require-atomic-updates': 'off',
     /**

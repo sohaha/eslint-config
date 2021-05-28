@@ -1,3 +1,12 @@
+/**
+ * 依赖版本：
+ *   eslint ^7.11.0
+ *   babel-eslint ^10.1.0
+ *   vue-eslint-parser ^7.1.1
+ *   eslint-plugin-vue ^6.2.2
+ *   @typescript-eslint/parser ^4.4.1
+ *   @typescript-eslint/eslint-plugin ^4.4.1
+ */
 module.exports = {
   parser: 'vue-eslint-parser',
   parserOptions: {
@@ -31,7 +40,6 @@ module.exports = {
     'vue/attributes-order': 'warn',
     /**
      * 变量名必须是 camelcase 风格的
-     * @reason 很多 api 或文件名都不是 camelcase 风格的
      */
     'vue/camelcase': 'off',
     /**
@@ -40,7 +48,6 @@ module.exports = {
     'vue/comment-directive': 'error',
     /**
      * 组件的 name 属性必须符合 PascalCase
-     * @reason 这是官方建议的规范
      */
     'vue/component-definition-name-casing': ['error', 'PascalCase'],
     /**
@@ -78,7 +85,7 @@ module.exports = {
       },
     ],
     /**
-     *
+     * HTML自闭合标签
      */
     'vue/html-self-closing': 'warn',
     /**
@@ -210,7 +217,6 @@ module.exports = {
     'vue/order-in-components': 'error',
     /**
      * <template> <script> <style> 之间必须由空行
-     * @reason 代码格式问题，最好由 Prettier 解决
      */
     'vue/padding-line-between-blocks': 'off',
     /**
@@ -235,7 +241,6 @@ module.exports = {
     'vue/require-name-property': 'off',
     /**
      * props 的取值必须是基本类型的构造函数，而不是字符串
-     * @reason 类型相关的约束交给 TypeScript
      */
     'vue/require-prop-type-constructor': 'off',
     /**
