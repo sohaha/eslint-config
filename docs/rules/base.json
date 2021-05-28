@@ -1641,8 +1641,8 @@
     "name": "semi",
     "value": [2, "always"],
     "description": "分号结尾",
-    "badExample": "<span class=\"token keyword\">let</span> t <span class=\"token operator\">=</span> <span class=\"token string\">\"666\"</span><mark class=\"eslint-error\"></mark>>",
-    "goodExample": "<span class=\"token keyword\">let</span> t <span class=\"token operator\">=</span> <span class=\"token string\">'666'</span><span class=\"token punctuation\">;</span>",
+    "badExample": "<span class=\"token keyword\">const</span> now <span class=\"token operator\">=</span> <span class=\"token keyword\">new</span> <span class=\"token class-name\">Date</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n<span class=\"token keyword\">let</span> arrt <span class=\"token operator\">=</span> <span class=\"token string\">'666'</span><mark class=\"eslint-error\"></mark>",
+    "goodExample": "<span class=\"token keyword\">const</span> now <span class=\"token operator\">=</span> <span class=\"token keyword\">new</span> <span class=\"token class-name\">Date</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n<span class=\"token keyword\">let</span> t <span class=\"token operator\">=</span> <span class=\"token string\">'666'</span><span class=\"token punctuation\">;</span>",
     "fixable": true,
     "extendsBaseRule": ""
   },
