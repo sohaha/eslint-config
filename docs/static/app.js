@@ -64,7 +64,7 @@ function htmlEncode(html) {
           e.id = k;
           const base = document.createElement('div');
           base.classList = 'flex-1 px-2 relative';
-          if (data['fixable']) base.dataset.tip = "支持 lint 自动修复";
+          if (data['fixable']) base.dataset.tip = '支持 lint 自动修复';
           let baseHTML = '<div><a class="token tag" href="#' + k + '"># ' + k + '</a></div>';
           baseHTML += '<div class="text-gray-400 text-sm">' + (data['fixable'] ? '<span>🔧 </span>' : '') + htmlEncode(data['description']) + '</div>';
           base.innerHTML = baseHTML;

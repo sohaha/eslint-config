@@ -2,10 +2,13 @@
  * 依赖版本：
  *   eslint ^7.11.0
  *   babel-eslint ^10.1.0
+ *   eslint-plugin-react ^7.21.4
  *   vue-eslint-parser ^7.1.1
  *   eslint-plugin-vue ^6.2.2
  *   @typescript-eslint/parser ^4.4.1
  *   @typescript-eslint/eslint-plugin ^4.4.1
+ *
+ * 此文件是由脚本 scripts/build.ts 自动生成
  */
 module.exports = {
   parser: 'babel-eslint',
@@ -64,6 +67,16 @@ module.exports = {
      * 在类的非静态方法中，必须存在对 this 的引用
      */
     'class-methods-use-this': 'off',
+    /**
+     * 数组和对象键值对最后一个逗号
+     */
+    'comma-dangle': [
+      'error',
+      {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+      },
+    ],
     /**
      * 禁止函数的循环复杂度超过 20
      */
